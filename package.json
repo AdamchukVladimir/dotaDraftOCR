@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^4.8.0",
+    "dhash": "^0.0.4",
+    "fs": "^0.0.1-security",
+    "hamming-distance": "^1.0.0",
+    "image-hash": "^5.3.1",
+    "is-in-hamming-distance": "^1.0.0",
+    "jimp": "^0.22.8",
+    "node-hamming-distance": "^1.0.1",
+    "phash-im": "^1.0.1",
+    "pixelmatch": "^5.3.0",
+    "screenshot-desktop": "^1.14.0"
+  }
+}
