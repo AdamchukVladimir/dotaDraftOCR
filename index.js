@@ -2,16 +2,23 @@ const screenshot = require('screenshot-desktop');
 let fs = require('fs');
 const path = require('path');
 const { imageHash }= require('image-hash');
+const sharp = require('sharp');
 
-//const imagesFolderPath = 'G:/IT/Git/dotaDraftOCR/avatars';
 const imagesFolderPath = 'G:/IT/Git/dotaDraftOCR/heroes_img';
-const screenshotPath = 'G:/IT/Git/dotaDraftOCR/avatars/venga_test.jpg';
-const HeroesPhashPath = 'G:/IT/Git/dotaDraftOCR/HeroesPhash.json';
-const HeroesPhashData = fs.readFileSync(HeroesPhashPath);
+const screenshotPath = 'G:/IT/Git/dotaDraftOCR/sharpImage.png';
+
+const cropCoordinates = {
+  width: 115, height: 65, left: 211, top: 7
+};
 
 screenshot().then((img) =>{
     fs.writeFileSync("screenshot.png", img);
     console.log("screenshot good");
+
+    sharp(img)
+      .extract(cropCoordinates)
+      .toFile("sharpImage.png");
+    console.log("sharpImage good");
 });
 
 function findMatchingImages(screenshotPath, imagesFolderPath) {
